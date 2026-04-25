@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Donor Connector{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper animate-fade-in" style="margin: 2rem 0;">
+    <div class="card auth-card" style="max-width: 550px;">
+        <div class="auth-header">
+            <h1>Join as a Donor</h1>
+            <p>Create your account and start saving lives</p>
+        </div>
+        
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required placeholder="Create a strong password">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                    <label for="blood" class="form-label">Blood Group</label>
+                    <select id="blood" name="blood" class="form-control" required>
+                        <option value="" disabled selected>Select Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+1 234 567 8900">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="location" class="form-label">City / Location</label>
+                <input type="text" id="location" name="location" class="form-control" required placeholder="e.g. New York">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                <i class="fa-solid fa-user-plus"></i> Register Account
+            </button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+            Already have an account? <a href="{{ url_for('login') }}" style="color: var(--primary-color); font-weight: 500;">Login here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
